@@ -1,0 +1,7 @@
+PYinstaller
+
+
+pip install pyInstaller
+
+pyInstaller teste3.py
+

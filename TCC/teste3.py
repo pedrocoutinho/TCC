@@ -30,3 +30,4 @@ words = re.findall(r'\w+', open('arquivo.txt', encoding="utf8").read().lower()) 
 c=collections.Counter(words) #contador de palavras
 print (c.most_common(3)) # palavras com maior frequencia
 bow.build_vocab(words) # bag of words
+

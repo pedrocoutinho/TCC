@@ -1,5 +1,7 @@
 import numpy as np
-class BagOfWords:
+import re
+
+class BagOfWords():
     def __init__(self):
          self.vocab = [] #Construtor de lista de palavras
 
@@ -13,8 +15,23 @@ class BagOfWords:
     def toarray(self, sentence):   #tipo da sentença, são grupos de palavras separados por espaço
         words = sentence.split(' ')
         print(words)
+        #bagofwords.write(words+"\n") #escrita txt
 
-inputs = []
+    def removeStopwords(self,wordlist, stopwords):
+        #with open('teste2.txt', 'w+', encoding="utf-8") as arquivo:
+        for w in wordlist: 
+            if w in wordlist:
+                print (w + "\n")  
 
-bow = BagOfWords() 
-bow.build_vocab(inputs)
+
+#stopwords = open('stopWords.txt', encoding="utf8")
+inputs = ['eu','quero','isso','ai']
+
+words2 = re.findall(r'\w+', open('stopWords.txt', encoding="utf8").read())
+ 
+bow = BagOfWords()
+bow.build_vocab(inputs) 
+#print (words2)
+bow.removeStopwords(inputs, words2)
+listafinal= list(set(inputs)- set(words2))
+print (listafinal)

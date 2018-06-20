@@ -9,7 +9,7 @@ Tentar identificar padrões através de tweets que possam prever e  influenciar 
 </p>
 
 
-<h3> Desrcição </h3>
+<h3> Descrição </h3>
 <p>
 Através da análise de dados e processamento de textos em Python, buscamos gerar informações úteis para o comportamento do Bitcoin.
 </p>

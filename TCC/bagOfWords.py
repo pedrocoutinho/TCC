@@ -10,31 +10,28 @@ class BagOfWords():
             for word in sentence.split(' '): #pega palavra por palavra da sentença até acabar a sentença
                     if word not in self.vocab: # se a palavra não estiver no vocabulário ele add
                             self.vocab.append(word)
-
-        inputs = self.vocab  
-        return inputs                  
-        #print(self.vocab) #printa o vocabulário todo
+        print(self.vocab) #printa o vocabulário todo
 
     def toarray(self, sentence):   #tipo da sentença, são grupos de palavras separados por espaço
         words = sentence.split(' ')
-       # print(words)
+        print(words)
+        #bagofwords.write(words+"\n") #escrita txt
 
-    def clean_tweet(self, tweet):
-        tweet = re.sub('http\S+\s*', '', tweet)  # remove URLs
-        tweet = re.sub('RT|cc', '', tweet)  # remove RT and cc
-        tweet = re.sub('#\S+', '', tweet)  # remove hashtags
-        tweet = re.sub('@\S+', '', tweet)  # remove mentions
-        tweet = re.sub('[%s]' % re.escape("""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""), '', tweet)  # remove punctuations
-        tweet = re.sub('\s+', ' ', tweet)  # remove extra whitespace
-        return tweet
+    def removeStopwords(self,wordlist, stopwords):
+        #with open('teste2.txt', 'w+', encoding="utf-8") as arquivo:
+        for w in wordlist: 
+            if w in wordlist:
+                print (w + "\n")  
 
-  #  def archieve_writer(self, words):
-  #      for word in words
-  #          with open('bow.txt', 'w+', encoding="utf-8") as bow:
 
-inputs = []
-tweet = '0' 
+#stopwords = open('stopWords.txt', encoding="utf8")
+inputs = ['eu','quero','isso','ai']
+
+words2 = re.findall(r'\w+', open('stopWords.txt', encoding="utf8").read())
+ 
 bow = BagOfWords()
 bow.build_vocab(inputs) 
-bow.clean_tweet(tweet)
-
+#print (words2)
+bow.removeStopwords(inputs, words2)
+listafinal= list(set(inputs)- set(words2))
+print (listafinal)

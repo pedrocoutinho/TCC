@@ -66,10 +66,10 @@ class Preprocessor:
         def do_preprocessing(l_docs):
             #l_docs = self.cleaning(l_docs)
             if stop_words:
-                l_docs = self.cleaning_url(l_docs)
-                l_docs = self.cleaning (l_docs,)
-                l_docs = self.remove_stopwords(l_docs, remove_accents=True)
-                l_docs = self.strip_extra_sapace(l_docs)
+                l_docs = self.cleaning_url(l_docs) #limpar URL
+                l_docs = self.cleaning (l_docs,) #limpa acentuacao
+                l_docs = self.remove_stopwords(l_docs, remove_accents=True) #remove stopwords
+                l_docs = self.strip_extra_sapace(l_docs) # remove espaços extras
                 l_docs = self.stemmer(l_docs)
             return l_docs
         
